@@ -1,5 +1,5 @@
 const express = require('express');
-const bodyParser = requre("body-parser");
+const bodyParser = require("body-parser");
 const app = express();
 const port = 3000;
 
@@ -46,7 +46,7 @@ app.put('/books/:id', (req,res) => {
 
 app.delete('/books/:id',(req,res) => {
     const bookId = parseInt(req.params.id);
-    const bookIndex = books.findIndex(book => bookid === bookId);
+    const bookIndex = books.findIndex(book => bookId === bookId);
     if (bookIndex !== -1) {
         books.splice(bookIndex, 1);
         res.status(204).send();
@@ -54,3 +54,7 @@ app.delete('/books/:id',(req,res) => {
         res.status(404).send('Book not found');
     }
 });
+
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
+ });
